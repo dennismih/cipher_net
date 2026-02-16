@@ -1,0 +1,691 @@
+<!DOCTYPE html><!--github on dennismih06@gmail.com...-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ciper_Net</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.min.css">
+	<link rel="stylesheet" href="styles-MB.css">
+
+</head>
+<body>
+     
+          <div class="elementi-navbar">
+    <!-- Content inside the frosted glass -->
+
+	   <div class="titolo-navbar">
+
+        <h1 style="font-size: 30px;">Cipher_Net</h1>
+
+
+    </div>
+		</div>
+
+        <br>
+        <br>
+        <br>
+    <!--<div class="intro">POLO EDITION</div> breve o commerciale ? tone of voice più giovane ? chiave seo ?...-->
+    <div class="intro">
+  CIPHER<span class="blink">_</span>NET
+</div>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+
+    <!--<div class="titoli" style="color: #d9d9d9">I tuoi messaggi nelle nostre mani</div>-->
+	<div class="titoli" style="color: #d9d9d9">La tua sicurezza, il nostro algoritmo.</div>
+    <br>
+	
+	<div id=product>
+			
+		<ul> 
+			<li class=menu><a href="#richiesta">RICHIESTA</a></li>
+			<li class=menu><a href="#crittografia">CRITTOGRAFIA</a></li>
+			<li class=menu><a href="#crit-sim.">CRITTOGRAFIA SIM.</a></li>
+			<li class=menu><a href="#crit-asi.">CRITTOGRAFIA ASI.</a></li>
+			<li class=menu><a href="#tech">LA NOSTRA TECH</a></li>
+			<li class=menu><a href="#alg">ALG. OPEN SOURCE</a></li>
+
+		</ul>
+
+		</div>
+	
+    <div class="paragrafi" style="align-items: left">
+
+<section id="richiesta">
+      <div class="titolo-navbar">
+
+        <h1 style="color: #284b63">RICHIESTA</h1>
+		
+		
+		</div>
+		
+
+  <div class="txt">
+Usando la libreria pycryptodome, dobbiamo creare una chat client-server che cifra i messaggi, implementando una crittografia ibrida.
+<!--Inoltre la chiave di sessione non è decisa dal server ma dal client: --> Se al client sono collegati 7 client, il server dovrà ricordarsi 7 chiavi di sessione che devono essere invalidate nel momento in cui un client si disconnette.
+</div>
+</section>
+	
+<section id="crittografia">
+<div class="titolo-navbar">
+
+        <h1 style="color: #284b63">CRITTOGRAFIA</h1>
+
+    </div>
+
+<div class="txt">
+La crittografia è un metodo che si usa "per nascondere un messaggio", e garantisce 3 pilastri principali:
+<br>
+* SEGRETEZZA: non si può legere il dato
+<br>
+** AUTENTICAZIONE: identificare mittente/destinatario
+<br>
+*** INTEGRITA': non si può modificare il dato
+<br>
++ NON RIPUDIO: auth+integrità (no che non sei stato tu)
+<br>
++ CONTROLLO DEGLI ACCESSI: chi accede e cosa può fare
+</div>
+</section>
+
+
+<div class="titolo-navbar">
+
+        <h1 style="color: #284b63">PYCRYPTODOME</h1>
+
+    </div>
+
+<div class="txt">
+PyCryptodome è una libreria crittografica per Python che fornisce:
+<br>
+Algoritmi di crittografia simmetrica (AES, DES, ChaCha20…)
+<br>
+Algoritmi di crittografia asimmetrica (RSA, ECC…)
+<br>
+Funzioni hash (SHA-256, SHA-512…)
+<br>
+Generazione sicura di numeri casuali
+<br>
+Padding e gestione dei blocchi
+<br>
+---> Sicurezza garantita da PyCryptodome:
+<br>
+Generazione casuale crittograficamente sicura (get_random_bytes)
+<br>
+Supporto standard industriali
+<br>
+Compatibilità con protocolli reali
+<br>
+Sicurezza aggiornata
+</div>
+
+<section id="crit-sim.">
+<div class="titolo-navbar">
+
+        <h1 style="color: #284b63">CRITTOGRAFIA SIMMETRICA</h1>
+
+    </div>
+
+<div class="txt">
+La crittografia simmetrica usa 1 chiave sia per cifrare che per decifrare
+<br>
+Nel nostro esempio abbiamo implementato AES (session key)
+<br>
+---> Vantaggi
+<br>
+Molto veloce
+<br>
+Ideale per grandi quantità di dati
+<br>
+Computazionalmente efficiente
+<br>
+---> Problema principale
+<br>
+Come scambiare la chiave in modo sicuro?
+<br>
+Nel nostro progetto questo problema viene risolto con RSA (crittografia ibrida).
+<br>
+AES - caratteristiche:
+<br>
+Sicuro contro attacchi noti
+<br>
+Lunghezze chiave: 128 / 192 / 256 bit
+<br>
+Algoritmo a blocchi (blocchi da 16 byte)
+<br>
+Nel progetto:
+<br>
+AES-128
+<br>
+Modalità CBC
+<br>
+<!--Padding PKCS7
+<br>-->
+Ruolo nel progetto:
+<br>
+Cifra i messaggi della chat
+<br>
+Protegge i dati durante la comunicazione continua
+<br>
+Riduce il carico computazionale rispetto a RSA
+</div>
+</section>
+
+<!--</div>-->
+
+<section id="crit-asi.">
+<div class="titolo-navbar">
+
+        <h1 style="color: #284b63">CRITTOGRAFIA ASIMMETRICA</h1>
+
+    </div>
+
+<div class="txt">
+La crittografia simmetrica usa 2 chiavi: 1 pubblica e 1 privata
+<br>
+Nel nostro esempio abbiamo implementato RSA
+<br>
+---> Flusso Completo dell’Applicazione
+<br>
+Server genera chiavi RSA
+<br>
+Client si connette
+<br>
+Server invia chiave pubblica
+<br>
+Client genera AES session key
+<br>
+Client cifra la session key con RSA
+<br>
+Server la decifra
+<br>
+Username cifrato con AES
+<br>
+Chat cifrata AES
+<br>
+Alla disconnessione → session key eliminata
+<br>
+RSA – basato su:
+<br>
+Fattorizzazione di grandi numeri primi
+<br>
+Nel progetto:
+<br>
+Chiave 2048 bit
+<br>
+Schema PKCS1_OAEP
+<br>
+Usato solo per lo scambio della session key
+<br>
+Perché non usarlo per tutta la chat?
+→ È troppo lento rispetto ad AES.
+</div>
+</section>
+
+
+<div class="titolo-navbar">
+
+        <h1 style="color: #284b63">CRITTOGRAFIA IBRIDA</h1>
+
+    </div>
+
+<div class="txt">
+Crittografia Ibrida – Architettura del sistema
+<br>
+Cipher_Net utilizza una crittografia ibrida, cioè combina:
+<br>
+RSA → per lo scambio sicuro della chiave
+<br>
+AES → per cifrare i messaggi
+<br>
+---> Gestione delle Session Key
+<br>
+Ogni client:
+<br>
+Genera la propria session key
+<br>
+Il server la salva nel dizionario
+<br>
+Se il client si disconnette → la chiave viene rimossa
+<br>
+Questo garantisce:
+<br>
+Isolamento tra client
+<br>
+Nessuna riutilizzazione delle chiavi
+<br>
+Invalidazione automatica alla disconnessione
+
+<div class="titolo-navbar">
+
+        <h1 style="color: #284b63">SOCKET, THREAD, CLIENT-SERVER</h1>
+
+    </div>
+
+<div class="txt">
+
+---> Modello Client-Server
+
+Il server:
+
+Resta in ascolto su una porta (5000)
+Accetta connessioni
+Gestisce più client contemporaneamente
+Memorizza una session key per ogni client
+
+Il client:
+
+Si connette al server
+Riceve la chiave pubblica
+Genera session key
+Stabilisce un canale cifrato
+
+---> Socket TCP – Come funzionano
+
+
+> Cos'è un socket?
+
+Un socket è un endpoint di comunicazione tra due processi in rete.
+
+Nel progetto usiamo:
+
+socket.AF_INET      # IPv4
+socket.SOCK_STREAM  # TCP
+
+> TCP garantisce:
+
+Ordine dei pacchetti
+Affidabilità
+Ritrasmissione automatica
+Connessione persistente
+
+---> Thread – Perché servono?
+
+Il server usa:
+
+threading.Thread(...)
+Ogni client viene gestito in un thread separato.
+
+Se non usassi i thread:
+
+Un client bloccherebbe tutti gli altri
+Il server sarebbe mono-connessione
+
+Con i thread:
+
+Più client possono comunicare contemporaneamente
+Ogni client ha la propria session key
+Il server mantiene un dizionario:
+
+clients = {
+    conn: (username, session_key)
+}
+</div>
+</div></div>
+    <!--</div>-->
+      <br>
+      <br>
+      <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+<section id="tech">
+<div class="titoli" style="color: #d9d9d9">LA NOSTRA TECNOLOGIA</div>
+
+
+<div class="slideshow-container-img">
+
+    <div class="titolo-navbar-img">
+        <button class="nav-btn-img" onclick="prevIMGSlide()">&#10094;</button>
+        <h1 id="slide-title-img" style="color: #284b63; text-align: center">1. GENERAZIONE CHIAVI RSA</h1>
+        <button class="nav-btn-img" onclick="nextIMGSlide()">&#10095;</button>
+    </div>
+
+    <div class="slide-img active">
+       <img src="Notes_260207_135325_Rotated_IonianCore_all_pages/1.png" alt="1" height="700">
+
+    </div>
+
+    <div class="slide-img">
+       <img src="Notes_260207_135325_Rotated_IonianCore_all_pages/2.png" alt="2" height="700">
+
+    </div>
+
+    <div class="slide-img">
+       <img src="Notes_260207_135325_Rotated_IonianCore_all_pages/3.png" alt="3" height="700">
+
+    </div>
+	
+	<div class="slide-img">
+       <img src="Notes_260207_135325_Rotated_IonianCore_all_pages/4.png" alt="4" height="700">
+
+    </div>
+	
+	<div class="slide-img">
+       <img src="Notes_260207_135325_Rotated_IonianCore_all_pages/5.png" alt="5" height="700">
+
+    </div>
+
+</div>
+</section>
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<section id="alg">
+<div class="titoli" style="color: #d9d9d9">IL NOSTRO ALGORITMO</div>
+
+
+<div class="slideshow-container">
+
+    <div class="titolo-navbar">
+        <button class="nav-btn" onclick="prevSlide()">&#10094;</button>
+        <h1 id="slide-title" style="color: #284b63; text-align: center">CRYPTO_UTILS.PY</h1>
+        <button class="nav-btn" onclick="nextSlide()">&#10095;</button>
+    </div>
+
+    <div class="slide active">
+<pre><code class="language-python">
+# pip install pycryptodome, python 3.11/3.12
+from Crypto.PublicKey import RSA
+from Crypto.Cipher import PKCS1_OAEP, AES
+from Crypto.Random import get_random_bytes
+from Crypto.Util.Padding import pad, unpad
+import base64
+
+def genera_chiavi_rsa():
+    key = RSA.generate(2048)
+    return key.export_key(), key.publickey().export_key()
+
+def cripta_rsa(public_key_bytes, data):
+    pub_key = RSA.import_key(public_key_bytes)
+    cipher = PKCS1_OAEP.new(pub_key)
+    return cipher.encrypt(data)
+
+def decripta_rsa(private_key_bytes, ciphertext):
+    priv_key = RSA.import_key(private_key_bytes)
+    cipher = PKCS1_OAEP.new(priv_key)
+    return cipher.decrypt(ciphertext)
+
+def genera_chiave_sessione():
+    return get_random_bytes(16)
+
+def cripta_aes(key, plaintext):
+    cipher = AES.new(key, AES.MODE_CBC)
+    ct = cipher.encrypt(pad(plaintext, AES.block_size))
+    return base64.b64encode(cipher.iv + ct)
+
+def decripta_aes(key, ciphertext_b64):
+    raw = base64.b64decode(ciphertext_b64)
+    iv = raw[:16]
+    ct = raw[16:]
+    cipher = AES.new(key, AES.MODE_CBC, iv)
+    return unpad(cipher.decrypt(ct), AES.block_size)
+
+</code></pre>
+    </div>
+
+    <div class="slide">
+<pre><code class="language-python">
+import socket
+import threading
+from crypto_utils import *
+
+HOST = "127.0.0.1"
+PORT = 5000
+
+private_key, public_key = genera_chiavi_rsa()
+clients = {} 
+
+def broadcast(sender_conn, message):
+    sender_name = clients[sender_conn][0]
+    for conn, (_, key) in clients.items():
+        if conn != sender_conn:
+            encrypted = cripta_aes(key, f"{sender_name}: {message}".encode())
+            conn.sendall(encrypted)
+
+def gestione_client_chat(conn):
+    try:
+        
+        conn.sendall(public_key)
+
+        
+        encrypted_session_key = conn.recv(256)
+        session_key = decripta_rsa(private_key, encrypted_session_key)
+
+        
+        encrypted_username = conn.recv(4096)
+        username = decripta_aes(session_key, encrypted_username).decode()
+
+        clients[conn] = (username, session_key)
+        print(f"[+] {username} connesso")
+
+        broadcast(conn, f"è entrato in chat")
+
+        while True:
+            encrypted_msg = conn.recv(4096)
+            if not encrypted_msg:
+                break
+
+            msg = decripta_aes(session_key, encrypted_msg).decode()
+            broadcast(conn, msg)
+
+    except Exception as e:
+        print("Errore:", e)
+
+    finally:
+        if conn in clients:
+            name = clients[conn][0]
+            clients.pop(conn)
+            broadcast(conn, f"è uscito dalla chat")
+            print(f"[-] {name} disconnesso")
+        conn.close()
+
+with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+    s.bind((HOST, PORT))
+    s.listen()
+    print("Server in ascolto...")
+
+    while True:
+        conn, addr = s.accept()
+        threading.Thread(target=gestione_client_chat, args=(conn,), daemon=True).start()
+
+</code></pre>
+    </div>
+
+    <div class="slide">
+<pre><code class="language-python">
+import socket
+import threading
+from crypto_utils import *
+
+HOST = "127.0.0.1"
+PORT = 5000
+
+def ricevi_messaggi(sock, session_key):
+    while True:
+        try:
+            data = sock.recv(4096)
+            if not data:
+                break
+            print(decripta_aes(session_key, data).decode())
+        except:
+            break
+
+with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+    s.connect((HOST, PORT))
+
+    
+    server_public_key = s.recv(2048)
+
+    
+    session_key = genera_chiave_sessione()
+    s.sendall(cripta_rsa(server_public_key, session_key))
+
+    
+    username = input("Username: ")
+    s.sendall(cripta_aes(session_key, username.encode()))
+
+    print("Connessione sicura stabilita")
+
+    threading.Thread(
+        target=ricevi_messaggi,
+        args=(s, session_key),
+        daemon=True
+    ).start()
+
+    while True:
+        msg = input()
+        if msg.lower() == "exit":
+            break
+        s.sendall(cripta_aes(session_key, msg.encode()))
+
+</code></pre>
+    </div>
+
+</div>
+</section>
+<div class="center">
+<a class="download" href="download.zip" download>
+  Scarica ZIP
+</a>
+</div>
+
+
+
+
+<!--<div class="titoli" style="color: #d9d9d9">CONCLUSIONE</div>
+    <br>
+    <div class="paragrafi">
+	<div class="txt">
+	-------
+</div>
+</div>-->
+<!--<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>-->
+<!--<div class="titoli">GRAZIE PER L’ATTENZIONE</div>-->
+
+
+
+    <div style="height: 70px;"></div> <!--lavora con noi, domande frequenti, guida taglie, le collezioni, stile e ispirazioni, sostegno e responsabilità, artigianalità e qualità, i nostri valori, la nostra storia ?-->
+
+        <div class="rights">© 2026 CIPHER_NET | All Rights Reserved</div>
+		
+		<script src="https://cdn.jsdelivr.net/npm/prismjs/prism.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-python.min.js"></script>
+
+		
+</body>
+</html>
+
+<script src="app.js"></script>
+
+<script>
+// Prendi il riferimento alla navbar
+const navbar = document.querySelector('.elementi-navbar');
+
+// Ascolta lo scroll della pagina
+window.addEventListener('scroll', () => {
+  // Se si è scrollato verso il basso (non è più in cima)
+  if (window.scrollY > 0) {
+    // Aggiungi la classe "visible" per far apparire la navbar
+    navbar.classList.add('visible');
+  } else {
+    // Rimuovi la classe "visible" per nascondere la navbar
+    navbar.classList.remove('visible');
+  }
+});
+
+</script>
+
+
+<script>
+let currentSlide = 0;
+const slides = document.querySelectorAll(".slide");
+
+// Array dei titoli, uno per slide
+const titles = [
+    "CRYPTO_UTILS.PY",
+    "SERVER.PY",
+    "CLIENT.PY"
+];
+
+const titleElement = document.getElementById("slide-title");
+
+function showSlide(index) {
+    slides.forEach(slide => slide.classList.remove("active"));
+    slides[index].classList.add("active");
+    titleElement.textContent = titles[index]; // Aggiorna titolo
+}
+
+function nextSlide() {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+}
+
+function prevSlide() {
+    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+    showSlide(currentSlide);
+}
+</script>
+
+
+<script>
+let currentIMGSlide = 0;
+const slidesimg = document.querySelectorAll(".slide-img");
+
+// Array dei titoli, uno per slide
+const titlesimg = [
+    "1. GENERAZIONE CHIAVI RSA",
+    "2. SCAMBIO SESSION KEY RSA",
+    "3. INVIO NOME UTENTE AES",
+	"4. CHAT SICURA CLIENT/SERVER",
+	"5. USCITA E GESTIONE ERRORI",
+];
+
+const titleIMGElement = document.getElementById("slide-title-img");
+
+function showIMGSlide(index) {
+    slidesimg.forEach(slideimg => slideimg.classList.remove("active"));
+    slidesimg[index].classList.add("active");
+    titleIMGElement.textContent = titlesimg[index]; // Aggiorna titolo
+}
+
+function nextIMGSlide() {
+    currentIMGSlide = (currentIMGSlide + 1) % slidesimg.length;
+    showIMGSlide(currentIMGSlide);
+}
+
+function prevIMGSlide() {
+    currentIMGSlide = (currentIMGSlide - 1 + slidesimg.length) % slidesimg.length;
+    showIMGSlide(currentIMGSlide);
+}
+</script>
